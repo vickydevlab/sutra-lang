@@ -1,0 +1,25 @@
+chapo("हिंदी कैलकुलेटर में आपका स्वागत है / Welcome to the Hindi calculator.")
+
+pehla   = poochho("पहली संख्या डालें / Enter the first number: ")
+doosra  = poochho("दूसरी संख्या डालें / Enter the second number: ")
+kriya   = poochho("क्रिया चुनें / Choose an operation (+, -, *, /): ")
+
+pehla  = float(pehla)
+doosra = float(doosra)
+
+ager kriya == "+":
+    chapo("योग / Sum =", pehla + doosra)
+nahi_to:
+    ager kriya == "-":
+        chapo("घटाव / Difference =", pehla - doosra)
+    nahi_to:
+        ager kriya == "*":
+            chapo("गुणन / Product =", pehla * doosra)
+        nahi_to:
+            ager kriya == "/":
+                ager doosra != 0:
+                    chapo("भाग / Quotient =", pehla / doosra)
+                nahi_to:
+                    chapo("0 से भाग नहीं कर सकते! / Cannot divide by 0!")
+            nahi_to:
+                chapo("अमान्य क्रिया! / Invalid operation! (+, -, *, / चुनें)")

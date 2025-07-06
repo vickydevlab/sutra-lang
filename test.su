@@ -1,0 +1,4 @@
+# demo.su
+chapo("this code is working")
+naam = poochho("check this ")
+chapo("working on this , " + naam)
