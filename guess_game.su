@@ -1,0 +1,21 @@
+ganit = __import__("random")
+
+chapo("🔢 गुप्त संख्या अनुमान खेल में आपका स्वागत है! / Welcome to the Guess the Number Game!")
+chapo("1 से 100 के बीच एक संख्या सोचो। / Think of a number between 1 and 100.")
+
+gupt = ganit.randint(1, 100)
+koshish = 0
+
+jabtak sach:
+    anuman = poochho("अपना अनुमान डालें: / Enter your guess: ")
+    anuman = int(anuman)
+    koshish = koshish + 1
+
+    ager anuman == gupt:
+        chapo("🎉 बधाई हो! आपने सही संख्या पकड़ी / Congratulations! You guessed it right:", gupt, "!", koshish, "कोशिशों में / attempts.")
+        tiyaag_kar()
+    nahi_to:
+        ager anuman < gupt:
+            chapo("📈 बड़ी संख्या डालो। / Try a higher number.")
+        nahi_to:
+            chapo("📉 छोटी संख्या डालो। / Try a lower number.")

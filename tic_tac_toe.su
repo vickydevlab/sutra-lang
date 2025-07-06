@@ -1,0 +1,54 @@
+khel_bharo = [[" " for i in range(3)] for j in range(3)]
+
+kaam board_dikhao():
+    chapo("\nचालें भरें (0-2). / Enter moves (0 to 2):")
+    chapo("---------")
+    ke_liye pankti in khel_bharo:
+        chapo("| " + " | ".join(pankti) + " |")
+        chapo("---------")
+
+kaam vijeta_ki_janch():
+    ke_liye i in range(3):
+        ager khel_bharo[i][0] == khel_bharo[i][1] == khel_bharo[i][2] != " ":
+            lautao sach
+        ager khel_bharo[0][i] == khel_bharo[1][i] == khel_bharo[2][i] != " ":
+            lautao sach
+    ager khel_bharo[0][0] == khel_bharo[1][1] == khel_bharo[2][2] != " ":
+        lautao sach
+    ager khel_bharo[0][2] == khel_bharo[1][1] == khel_bharo[2][0] != " ":
+        lautao sach
+    lautao jhooth
+
+kaam khali_hai():
+    ke_liye pankti in khel_bharo:
+        ager " " in pankti:
+            lautao sach
+    lautao jhooth
+
+player = "X"
+
+jabtak sach:
+    board_dikhao()
+    chapo("✋ खिलाड़ी", player, "की चाल / Player", player, "turn")
+    row = int(poochho("पंक्ति चुनें (0-2) / Row (0-2): "))
+    col = int(poochho("स्तंभ चुनें (0-2) / Column (0-2): "))
+
+    ager khel_bharo[row][col] == " ":
+        khel_bharo[row][col] = player
+
+        ager vijeta_ki_janch():
+            board_dikhao()
+            chapo("🎉 खिलाड़ी", player, "जीत गया! / Player", player, "wins!")
+            tiyaag_kar()
+
+        ager khali_hai() == jhooth:
+            board_dikhao()
+            chapo("⚖️ खेल ड्रॉ है! / It's a draw!")
+            tiyaag_kar()
+
+        ager player == "X":
+            player = "O"
+        nahi_to:
+            player = "X"
+    nahi_to:
+        chapo("❌ जगह भरी हुई है! / Cell already filled. Try again.")
